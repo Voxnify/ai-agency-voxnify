@@ -4,9 +4,9 @@ export const siteContent = {
     loginText: "Client Login",
     navLinks: [
       { label: "Home", href: "#hero" },
+      { label: "Problems We Solve", href: "#agitation" },
       { label: "Services", href: "#services" },
       { label: "Testimonials", href: "#testimonials" },
-      { label: "Problems We Solve", href: "#agitation" },
       { label: "About", href: "#about" },
       { label: "Contact", href: "#contact" },
     ],
