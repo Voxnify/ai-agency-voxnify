@@ -1,35 +1,36 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Calendar, Mail, Phone, ArrowRight } from "lucide-react"
+import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Calendar, Mail, Phone, ArrowRight } from "lucide-react";
 
 interface ContactProps {
   content: {
-    headline: string
-    subheadline: string
-    email: string
-    phone: string
-    cta: string
-  }
+    headline: string;
+    subheadline: string;
+    email: string;
+    phone1: string;
+    phone2: string;
+    cta: string;
+  };
 }
 
 export function Contact({ content }: ContactProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 },
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -39,9 +40,8 @@ export function Contact({ content }: ContactProps) {
     >
       <div className="max-w-7xl mx-auto">
         <div
-          className={`grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight text-balance">
@@ -57,8 +57,12 @@ export function Contact({ content }: ContactProps) {
                   <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Email us at</p>
-                  <p className="font-medium text-foreground text-sm sm:text-base">{content.email}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Email us at
+                  </p>
+                  <p className="font-medium text-foreground text-sm sm:text-base">
+                    {content.email}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 sm:gap-4 group">
@@ -66,8 +70,15 @@ export function Contact({ content }: ContactProps) {
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Call us at</p>
-                  <p className="font-medium text-foreground text-sm sm:text-base">{content.phone}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Call us at
+                  </p>
+                  <p className="font-medium text-foreground text-sm sm:text-base">
+                    {content.phone1}
+                  </p>
+                  <p className="font-medium text-foreground text-sm sm:text-base">
+                    {content.phone2}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 sm:gap-4 group">
@@ -85,18 +96,26 @@ export function Contact({ content }: ContactProps) {
           </div>
 
           <div
-            className={`p-5 sm:p-6 md:p-8 rounded-2xl bg-background border border-border/50 transition-all duration-700 hover:shadow-lg ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`p-5 sm:p-6 md:p-8 rounded-2xl bg-background border border-border/50 transition-all duration-700 hover:shadow-lg ${isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+              }`}
             style={{ transitionDelay: isVisible ? "200ms" : "0ms" }}
           >
             <form className="space-y-4 sm:space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
+                  >
                     Name
                   </label>
-                  <Input id="name" placeholder="John Doe" className="bg-secondary/50 border-border/50 h-10 sm:h-11" />
+                  <Input
+                    id="name"
+                    placeholder="John Doe"
+                    className="bg-secondary/50 border-border/50 h-10 sm:h-11"
+                  />
                 </div>
                 <div>
                   <label
@@ -153,5 +172,5 @@ export function Contact({ content }: ContactProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }

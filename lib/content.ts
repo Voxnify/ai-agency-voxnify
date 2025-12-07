@@ -153,8 +153,9 @@ export const siteContent = {
     headline: "Ready to Transform Your Operations?",
     subheadline:
       "Schedule a free consultation to discover how AI automation can unlock your business potential. No pressure, just insights.",
-    email: "hello@flowagents.ai",
-    phone: "+1 (555) 123-4567",
+    email: "voxnify.iitd@gmail.com",
+    phone1: "+91 9302258038",
+    phone2: "+91 8699427745",
     cta: "Send Message",
   },
   footer: {
